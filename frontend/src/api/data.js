@@ -6,7 +6,7 @@ export const data = async () => {
             url: "/api/data",
             method: "POST",
             data: { name: "smith" },
-            timeout: 5000 // 5 seconds timeout
+            timeout: 10000  // 10 seconds timeout (increase from 5 seconds)
         });
         return response;
     } catch (error) {
