@@ -41,7 +41,6 @@ function App() {
 
   return (
     <>
-      <p>{jokes.length}</p>
       <div>
         {jokes.map((joke) => (
           <p key={joke.id}>{joke.content}</p>
