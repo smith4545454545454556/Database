@@ -14,20 +14,10 @@ connectDB()
 app.get("/api/jokes", (req, res) => {
     const jokes = [{
         id: 1,
-        content: "hahaha"
+        content: "welcome"
     }, {
         id: 2,
-        content: "hehehe"
-    }, {
-        id: 3,
-        content: "hohoho"
-    }, {
-        id: 4,
-        content: "four"
-    },
-    {
-        id: 5,
-        content: "five"
+        content: "user"
     }]
     res.send(jokes)
 })
