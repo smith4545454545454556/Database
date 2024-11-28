@@ -37,7 +37,8 @@ app.post("/api/formData", async (req, res) => {
         email: email
     })
     await formdata.save()
-    return formdata
+    return res.status(200).json({ message: "Data received" }); // Send success response
+
 })
 const port = process.env.PORT || 3000
 app.listen(port, async () => {
