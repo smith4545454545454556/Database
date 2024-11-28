@@ -25,7 +25,9 @@ export const addFormData = async (data) => {
         const formData = await axios({
             url: "/api/formData",
             method: "POST",
-            data: data
+            data: data,
+            timeout: 10000  // 10 seconds timeout (increase from 5 seconds)
+
 
         })
         return formData
