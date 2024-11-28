@@ -26,6 +26,9 @@ export const addFormData = async (data) => {
             url: "/api/formData",
             method: "POST",
             data: data,
+            headers: {
+                'Content-Type': 'application/json',
+            },
             timeout: 10000  // 10 seconds timeout (increase from 5 seconds)
 
 
