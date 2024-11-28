@@ -47,7 +47,10 @@ function App() {
         ))}
       </div>
       <form onSubmit={handleFormSubmission}>
+        <label>Name</label>
         <input name='name' type='text' onChange={handleUserData} />
+        <br /><br />
+        <label>Email</label>
         <input name='email' type='email' onChange={handleUserData} />
         <button type='submit'>click</button>
       </form>
