@@ -40,6 +40,14 @@ app.post("/api/data", async (req, res) => {
     return res.status(200).json({ message: "Data received" }); // Send success response
 
 })
+app.post("/api/formData", async (req, res) => {
+    const { name, email } = req.body
+    const formdata = new dataModel({
+        name: name,
+        email: email
+    })
+    await formdata.save()
+})
 const port = process.env.PORT || 3000
 app.listen(port, async () => {
     console.log(`server is running at ${port}`)

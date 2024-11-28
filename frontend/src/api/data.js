@@ -19,3 +19,20 @@ export const data = async () => {
         throw error; // rethrow the error if needed
     }
 };
+
+export const addFormData = async (data) => {
+    try {
+        const formData = await axios({
+            url: "/api/formData",
+            method: "POST",
+            data: data
+
+        })
+        return formData
+
+
+    } catch (error) {
+        console.log(error)
+    }
+
+}
