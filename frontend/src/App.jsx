@@ -9,7 +9,8 @@ function App() {
   const [jokes, setJokes] = useState([])
   const [formData, setFormData] = useState({
     name: "",
-    email: ""
+    email: "",
+    profilePic: ""
   })
   useEffect(() => {
     axios.get("/api/jokes").then((response) => {
@@ -28,13 +29,25 @@ function App() {
   }
   const handleUserData = (e) => {
     e.preventDefault()
-    const { name, value } = e.target
-    setFormData((prev) => ({ ...prev, [name]: value }))
+    const { name, value, files } = e.target
+    if (name === "profile") {
+      setFormData((prev) => ({ ...prev, profilePic: files[0] }))
+      console.log(formData)
+
+    }
+    else {
+
+      setFormData((prev) => ({ ...prev, [name]: value }))
+    }
 
   }
   const handleFormSubmission = async (e) => {
     e.preventDefault()
-    const response = await addFormData(formData)
+    const formDataToSend = new FormData()
+    formDataToSend.append("name", formData.name);
+    formDataToSend.append("email", formData.email);
+    formDataToSend.append("profile", formData.profilePic);
+    const response = await addFormData(formDataToSend)
     console.log(response, "backend response")
 
   }
@@ -46,12 +59,13 @@ function App() {
           <p key={joke.id}>{joke.content}</p>
         ))}
       </div>
-      <form onSubmit={handleFormSubmission}>
+      <form onSubmit={handleFormSubmission} encType='multipart-form/data' >
         <label>Name</label>
         <input name='name' type='text' onChange={handleUserData} />
         <br /><br />
         <label>Email</label>
         <input name='email' type='email' onChange={handleUserData} />
+        <input name='profile' type='file' onChange={handleUserData} />
         <button type='submit'>click</button>
       </form>
 

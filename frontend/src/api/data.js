@@ -21,13 +21,15 @@ export const data = async () => {
 };
 
 export const addFormData = async (data) => {
+    console.log(data, "the official data")
     try {
         const formData = await axios({
             url: "/api/formData",
             method: "POST",
             data: data,
             headers: {
-                'Content-Type': 'application/json',
+                'Content-Type': 'multipart/form-data',
+
             },
             timeout: 10000  // 10 seconds timeout (increase from 5 seconds)
 
