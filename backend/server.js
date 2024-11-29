@@ -3,7 +3,7 @@ import { dataModel } from "./model/data.js"
 import { connectDB } from "./config.js"
 import dotenv from "dotenv"
 import upload from "./multer.js"
-import { cloudinarySetup, uploadToCloud } from "./cloudinary.js"
+import { uploadToCloud } from "./cloudinary.js"
 dotenv.config()
 const app = express()
 app.use(express.json())
