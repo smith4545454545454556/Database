@@ -58,7 +58,7 @@ app.post("/api/formData", upload.single("profile"), async (req, res) => {
         await formdata.save();
 
         // Send success response
-        return res.status(200).json({ message: "Data uploaded successfully", filedata: response.secure_url });
+        return res.status(200).json({ message: "Data uploaded successfully" });
     } catch (error) {
         // Handle errors
         console.error("Error uploading to Cloudinary:", error);
